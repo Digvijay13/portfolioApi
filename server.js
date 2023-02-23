@@ -7,7 +7,6 @@ import Users from "./Database/Models/getUser.js";
 import smtp from "./Services/Smtp.js";
 import http from 'http'
 config();
-// parse application/json
 const port = process.env.SERVER_URL || 4000;
 const app = express();
 var httpServer = http.createServer(app);
