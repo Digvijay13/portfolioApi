@@ -5,11 +5,9 @@ import cors from "cors";
 import getMongooseReady from "./Database/connection.js";
 import Users from "./Database/Models/getUser.js";
 import smtp from "./Services/Smtp.js";
-import http from 'http'
 config();
 const port = process.env.SERVER_URL || 4000;
 const app = express();
-var httpServer = http.createServer(app);
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -38,9 +36,8 @@ app.post("/formSubmit", async (req, res) => {
   }
 });
 
-// app.listen(port, async () => {
-//   console.log(`Started ${port}🚀`);
-//   const getDB = getMongooseReady(process.env.DATABASE_URL);
-//   console.log(getDB);
-// });
-httpServer.listen(port);
+app.listen(port, async () => {
+  console.log(`Started ${port}🚀`);
+  const getDB = getMongooseReady(process.env.DATABASE_URL);
+  console.log(getDB);
+});
