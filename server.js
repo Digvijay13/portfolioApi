@@ -33,7 +33,7 @@ app.post("/formSubmit", async (req, res) => {
       }
     }
   } catch (error) {
-    console.log(error,"errrrrrrrrr");
+    console.log(error.response.body[0],"errrrrrrrrr");
   }
 });
 
